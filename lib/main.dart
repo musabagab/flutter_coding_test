@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_coding_test/features/products_list/bloc/product_bloc.dart';
 import 'package:flutter_coding_test/features/products_list/products.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(BlocProvider<ProductBloc>(
+    create: (context) => ProductBloc(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
