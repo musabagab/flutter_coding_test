@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ProductEvent {
-  int get categoryId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int categoryId) categorySelected,
+    required TResult Function(int viewMode) viewModeChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int categoryId)? categorySelected,
+    TResult? Function(int viewMode)? viewModeChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int categoryId)? categorySelected,
+    TResult Function(int viewMode)? viewModeChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CategorySelectedEvent value) categorySelected,
+    required TResult Function(ViewModeChangedEvent value) viewModeChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CategorySelectedEvent value)? categorySelected,
+    TResult? Function(ViewModeChangedEvent value)? viewModeChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CategorySelectedEvent value)? categorySelected,
+    TResult Function(ViewModeChangedEvent value)? viewModeChanged,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ProductEventCopyWith<ProductEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +61,6 @@ abstract class $ProductEventCopyWith<$Res> {
   factory $ProductEventCopyWith(
           ProductEvent value, $Res Function(ProductEvent) then) =
       _$ProductEventCopyWithImpl<$Res, ProductEvent>;
-  @useResult
-  $Res call({int categoryId});
 }
 
 /// @nodoc
@@ -73,28 +72,13 @@ class _$ProductEventCopyWithImpl<$Res, $Val extends ProductEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? categoryId = null,
-  }) {
-    return _then(_value.copyWith(
-      categoryId: null == categoryId
-          ? _value.categoryId
-          : categoryId // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$CategorySelectedEventCopyWith<$Res>
-    implements $ProductEventCopyWith<$Res> {
+abstract class _$$CategorySelectedEventCopyWith<$Res> {
   factory _$$CategorySelectedEventCopyWith(_$CategorySelectedEvent value,
           $Res Function(_$CategorySelectedEvent) then) =
       __$$CategorySelectedEventCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({int categoryId});
 }
@@ -157,6 +141,7 @@ class _$CategorySelectedEvent implements CategorySelectedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int categoryId) categorySelected,
+    required TResult Function(int viewMode) viewModeChanged,
   }) {
     return categorySelected(categoryId);
   }
@@ -165,6 +150,7 @@ class _$CategorySelectedEvent implements CategorySelectedEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int categoryId)? categorySelected,
+    TResult? Function(int viewMode)? viewModeChanged,
   }) {
     return categorySelected?.call(categoryId);
   }
@@ -173,6 +159,7 @@ class _$CategorySelectedEvent implements CategorySelectedEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int categoryId)? categorySelected,
+    TResult Function(int viewMode)? viewModeChanged,
     required TResult orElse(),
   }) {
     if (categorySelected != null) {
@@ -185,6 +172,7 @@ class _$CategorySelectedEvent implements CategorySelectedEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CategorySelectedEvent value) categorySelected,
+    required TResult Function(ViewModeChangedEvent value) viewModeChanged,
   }) {
     return categorySelected(this);
   }
@@ -193,6 +181,7 @@ class _$CategorySelectedEvent implements CategorySelectedEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CategorySelectedEvent value)? categorySelected,
+    TResult? Function(ViewModeChangedEvent value)? viewModeChanged,
   }) {
     return categorySelected?.call(this);
   }
@@ -201,6 +190,7 @@ class _$CategorySelectedEvent implements CategorySelectedEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CategorySelectedEvent value)? categorySelected,
+    TResult Function(ViewModeChangedEvent value)? viewModeChanged,
     required TResult orElse(),
   }) {
     if (categorySelected != null) {
@@ -214,10 +204,144 @@ abstract class CategorySelectedEvent implements ProductEvent {
   const factory CategorySelectedEvent(final int categoryId) =
       _$CategorySelectedEvent;
 
-  @override
   int get categoryId;
-  @override
   @JsonKey(ignore: true)
   _$$CategorySelectedEventCopyWith<_$CategorySelectedEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ViewModeChangedEventCopyWith<$Res> {
+  factory _$$ViewModeChangedEventCopyWith(_$ViewModeChangedEvent value,
+          $Res Function(_$ViewModeChangedEvent) then) =
+      __$$ViewModeChangedEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int viewMode});
+}
+
+/// @nodoc
+class __$$ViewModeChangedEventCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res, _$ViewModeChangedEvent>
+    implements _$$ViewModeChangedEventCopyWith<$Res> {
+  __$$ViewModeChangedEventCopyWithImpl(_$ViewModeChangedEvent _value,
+      $Res Function(_$ViewModeChangedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? viewMode = null,
+  }) {
+    return _then(_$ViewModeChangedEvent(
+      null == viewMode
+          ? _value.viewMode
+          : viewMode // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ViewModeChangedEvent implements ViewModeChangedEvent {
+  const _$ViewModeChangedEvent(this.viewMode);
+
+  @override
+  final int viewMode;
+
+  @override
+  String toString() {
+    return 'ProductEvent.viewModeChanged(viewMode: $viewMode)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ViewModeChangedEvent &&
+            (identical(other.viewMode, viewMode) ||
+                other.viewMode == viewMode));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, viewMode);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ViewModeChangedEventCopyWith<_$ViewModeChangedEvent> get copyWith =>
+      __$$ViewModeChangedEventCopyWithImpl<_$ViewModeChangedEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int categoryId) categorySelected,
+    required TResult Function(int viewMode) viewModeChanged,
+  }) {
+    return viewModeChanged(viewMode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int categoryId)? categorySelected,
+    TResult? Function(int viewMode)? viewModeChanged,
+  }) {
+    return viewModeChanged?.call(viewMode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int categoryId)? categorySelected,
+    TResult Function(int viewMode)? viewModeChanged,
+    required TResult orElse(),
+  }) {
+    if (viewModeChanged != null) {
+      return viewModeChanged(viewMode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CategorySelectedEvent value) categorySelected,
+    required TResult Function(ViewModeChangedEvent value) viewModeChanged,
+  }) {
+    return viewModeChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CategorySelectedEvent value)? categorySelected,
+    TResult? Function(ViewModeChangedEvent value)? viewModeChanged,
+  }) {
+    return viewModeChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategorySelectedEvent value)? categorySelected,
+    TResult Function(ViewModeChangedEvent value)? viewModeChanged,
+    required TResult orElse(),
+  }) {
+    if (viewModeChanged != null) {
+      return viewModeChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ViewModeChangedEvent implements ProductEvent {
+  const factory ViewModeChangedEvent(final int viewMode) =
+      _$ViewModeChangedEvent;
+
+  int get viewMode;
+  @JsonKey(ignore: true)
+  _$$ViewModeChangedEventCopyWith<_$ViewModeChangedEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,4 +6,7 @@ part 'product_event.freezed.dart';
 class ProductEvent with _$ProductEvent {
   const factory ProductEvent.categorySelected(int categoryId) =
       CategorySelectedEvent;
+
+  const factory ProductEvent.viewModeChanged(int viewMode) =
+      ViewModeChangedEvent;
 }

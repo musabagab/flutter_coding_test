@@ -16,12 +16,17 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ProductsScreenState {
+  List<Product> get products => throw _privateConstructorUsedError;
   int get selectedCategory => throw _privateConstructorUsedError;
+  int get viewMode => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int selectedCategory) initial,
-    required TResult Function(int selectedCategory) loading,
-    required TResult Function(int selectedCategory) error,
+    required TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)
+        initial,
+    required TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)
+        loading,
     required TResult Function(
             List<Product> products, int selectedCategory, int viewMode)
         loaded,
@@ -29,9 +34,12 @@ mixin _$ProductsScreenState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int selectedCategory)? initial,
-    TResult? Function(int selectedCategory)? loading,
-    TResult? Function(int selectedCategory)? error,
+    TResult? Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        initial,
+    TResult? Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        loading,
     TResult? Function(
             List<Product> products, int selectedCategory, int viewMode)?
         loaded,
@@ -39,9 +47,12 @@ mixin _$ProductsScreenState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int selectedCategory)? initial,
-    TResult Function(int selectedCategory)? loading,
-    TResult Function(int selectedCategory)? error,
+    TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        initial,
+    TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        loading,
     TResult Function(
             List<Product> products, int selectedCategory, int viewMode)?
         loaded,
@@ -52,7 +63,6 @@ mixin _$ProductsScreenState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
     required TResult Function(_Loaded value) loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -60,7 +70,6 @@ mixin _$ProductsScreenState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
     TResult? Function(_Loaded value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -68,7 +77,6 @@ mixin _$ProductsScreenState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
     TResult Function(_Loaded value)? loaded,
     required TResult orElse(),
   }) =>
@@ -85,7 +93,7 @@ abstract class $ProductsScreenStateCopyWith<$Res> {
           ProductsScreenState value, $Res Function(ProductsScreenState) then) =
       _$ProductsScreenStateCopyWithImpl<$Res, ProductsScreenState>;
   @useResult
-  $Res call({int selectedCategory});
+  $Res call({List<Product> products, int selectedCategory, int viewMode});
 }
 
 /// @nodoc
@@ -101,12 +109,22 @@ class _$ProductsScreenStateCopyWithImpl<$Res, $Val extends ProductsScreenState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? products = null,
     Object? selectedCategory = null,
+    Object? viewMode = null,
   }) {
     return _then(_value.copyWith(
+      products: null == products
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
       selectedCategory: null == selectedCategory
           ? _value.selectedCategory
           : selectedCategory // ignore: cast_nullable_to_non_nullable
+              as int,
+      viewMode: null == viewMode
+          ? _value.viewMode
+          : viewMode // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -120,7 +138,7 @@ abstract class _$$_InitialCopyWith<$Res>
       __$$_InitialCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int selectedCategory});
+  $Res call({List<Product> products, int selectedCategory, int viewMode});
 }
 
 /// @nodoc
@@ -133,12 +151,22 @@ class __$$_InitialCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? products = null,
     Object? selectedCategory = null,
+    Object? viewMode = null,
   }) {
     return _then(_$_Initial(
+      null == products
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
       null == selectedCategory
           ? _value.selectedCategory
           : selectedCategory // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == viewMode
+          ? _value.viewMode
+          : viewMode // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -147,14 +175,26 @@ class __$$_InitialCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Initial implements _Initial {
-  const _$_Initial(this.selectedCategory);
+  const _$_Initial(
+      final List<Product> products, this.selectedCategory, this.viewMode)
+      : _products = products;
+
+  final List<Product> _products;
+  @override
+  List<Product> get products {
+    if (_products is EqualUnmodifiableListView) return _products;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_products);
+  }
 
   @override
   final int selectedCategory;
+  @override
+  final int viewMode;
 
   @override
   String toString() {
-    return 'ProductsScreenState.initial(selectedCategory: $selectedCategory)';
+    return 'ProductsScreenState.initial(products: $products, selectedCategory: $selectedCategory, viewMode: $viewMode)';
   }
 
   @override
@@ -162,12 +202,19 @@ class _$_Initial implements _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Initial &&
+            const DeepCollectionEquality().equals(other._products, _products) &&
             (identical(other.selectedCategory, selectedCategory) ||
-                other.selectedCategory == selectedCategory));
+                other.selectedCategory == selectedCategory) &&
+            (identical(other.viewMode, viewMode) ||
+                other.viewMode == viewMode));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, selectedCategory);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_products),
+      selectedCategory,
+      viewMode);
 
   @JsonKey(ignore: true)
   @override
@@ -178,42 +225,51 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int selectedCategory) initial,
-    required TResult Function(int selectedCategory) loading,
-    required TResult Function(int selectedCategory) error,
+    required TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)
+        initial,
+    required TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)
+        loading,
     required TResult Function(
             List<Product> products, int selectedCategory, int viewMode)
         loaded,
   }) {
-    return initial(selectedCategory);
+    return initial(products, selectedCategory, viewMode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int selectedCategory)? initial,
-    TResult? Function(int selectedCategory)? loading,
-    TResult? Function(int selectedCategory)? error,
+    TResult? Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        initial,
+    TResult? Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        loading,
     TResult? Function(
             List<Product> products, int selectedCategory, int viewMode)?
         loaded,
   }) {
-    return initial?.call(selectedCategory);
+    return initial?.call(products, selectedCategory, viewMode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int selectedCategory)? initial,
-    TResult Function(int selectedCategory)? loading,
-    TResult Function(int selectedCategory)? error,
+    TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        initial,
+    TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        loading,
     TResult Function(
             List<Product> products, int selectedCategory, int viewMode)?
         loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(selectedCategory);
+      return initial(products, selectedCategory, viewMode);
     }
     return orElse();
   }
@@ -223,7 +279,6 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
     required TResult Function(_Loaded value) loaded,
   }) {
     return initial(this);
@@ -234,7 +289,6 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
     TResult? Function(_Loaded value)? loaded,
   }) {
     return initial?.call(this);
@@ -245,7 +299,6 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
     TResult Function(_Loaded value)? loaded,
     required TResult orElse(),
   }) {
@@ -257,10 +310,15 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements ProductsScreenState {
-  const factory _Initial(final int selectedCategory) = _$_Initial;
+  const factory _Initial(final List<Product> products,
+      final int selectedCategory, final int viewMode) = _$_Initial;
 
   @override
+  List<Product> get products;
+  @override
   int get selectedCategory;
+  @override
+  int get viewMode;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
@@ -275,7 +333,7 @@ abstract class _$$_LoadingCopyWith<$Res>
       __$$_LoadingCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int selectedCategory});
+  $Res call({List<Product> products, int selectedCategory, int viewMode});
 }
 
 /// @nodoc
@@ -288,12 +346,22 @@ class __$$_LoadingCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? products = null,
     Object? selectedCategory = null,
+    Object? viewMode = null,
   }) {
     return _then(_$_Loading(
+      null == products
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
       null == selectedCategory
           ? _value.selectedCategory
           : selectedCategory // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == viewMode
+          ? _value.viewMode
+          : viewMode // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -302,14 +370,26 @@ class __$$_LoadingCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loading implements _Loading {
-  const _$_Loading(this.selectedCategory);
+  const _$_Loading(
+      final List<Product> products, this.selectedCategory, this.viewMode)
+      : _products = products;
+
+  final List<Product> _products;
+  @override
+  List<Product> get products {
+    if (_products is EqualUnmodifiableListView) return _products;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_products);
+  }
 
   @override
   final int selectedCategory;
+  @override
+  final int viewMode;
 
   @override
   String toString() {
-    return 'ProductsScreenState.loading(selectedCategory: $selectedCategory)';
+    return 'ProductsScreenState.loading(products: $products, selectedCategory: $selectedCategory, viewMode: $viewMode)';
   }
 
   @override
@@ -317,12 +397,19 @@ class _$_Loading implements _Loading {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loading &&
+            const DeepCollectionEquality().equals(other._products, _products) &&
             (identical(other.selectedCategory, selectedCategory) ||
-                other.selectedCategory == selectedCategory));
+                other.selectedCategory == selectedCategory) &&
+            (identical(other.viewMode, viewMode) ||
+                other.viewMode == viewMode));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, selectedCategory);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_products),
+      selectedCategory,
+      viewMode);
 
   @JsonKey(ignore: true)
   @override
@@ -333,42 +420,51 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int selectedCategory) initial,
-    required TResult Function(int selectedCategory) loading,
-    required TResult Function(int selectedCategory) error,
+    required TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)
+        initial,
+    required TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)
+        loading,
     required TResult Function(
             List<Product> products, int selectedCategory, int viewMode)
         loaded,
   }) {
-    return loading(selectedCategory);
+    return loading(products, selectedCategory, viewMode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int selectedCategory)? initial,
-    TResult? Function(int selectedCategory)? loading,
-    TResult? Function(int selectedCategory)? error,
+    TResult? Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        initial,
+    TResult? Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        loading,
     TResult? Function(
             List<Product> products, int selectedCategory, int viewMode)?
         loaded,
   }) {
-    return loading?.call(selectedCategory);
+    return loading?.call(products, selectedCategory, viewMode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int selectedCategory)? initial,
-    TResult Function(int selectedCategory)? loading,
-    TResult Function(int selectedCategory)? error,
+    TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        initial,
+    TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        loading,
     TResult Function(
             List<Product> products, int selectedCategory, int viewMode)?
         loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading(selectedCategory);
+      return loading(products, selectedCategory, viewMode);
     }
     return orElse();
   }
@@ -378,7 +474,6 @@ class _$_Loading implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
     required TResult Function(_Loaded value) loaded,
   }) {
     return loading(this);
@@ -389,7 +484,6 @@ class _$_Loading implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
     TResult? Function(_Loaded value)? loaded,
   }) {
     return loading?.call(this);
@@ -400,7 +494,6 @@ class _$_Loading implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
     TResult Function(_Loaded value)? loaded,
     required TResult orElse(),
   }) {
@@ -412,167 +505,18 @@ class _$_Loading implements _Loading {
 }
 
 abstract class _Loading implements ProductsScreenState {
-  const factory _Loading(final int selectedCategory) = _$_Loading;
+  const factory _Loading(final List<Product> products,
+      final int selectedCategory, final int viewMode) = _$_Loading;
 
   @override
+  List<Product> get products;
+  @override
   int get selectedCategory;
+  @override
+  int get viewMode;
   @override
   @JsonKey(ignore: true)
   _$$_LoadingCopyWith<_$_Loading> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_ErrorCopyWith<$Res>
-    implements $ProductsScreenStateCopyWith<$Res> {
-  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
-      __$$_ErrorCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int selectedCategory});
-}
-
-/// @nodoc
-class __$$_ErrorCopyWithImpl<$Res>
-    extends _$ProductsScreenStateCopyWithImpl<$Res, _$_Error>
-    implements _$$_ErrorCopyWith<$Res> {
-  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? selectedCategory = null,
-  }) {
-    return _then(_$_Error(
-      null == selectedCategory
-          ? _value.selectedCategory
-          : selectedCategory // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_Error implements _Error {
-  const _$_Error(this.selectedCategory);
-
-  @override
-  final int selectedCategory;
-
-  @override
-  String toString() {
-    return 'ProductsScreenState.error(selectedCategory: $selectedCategory)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Error &&
-            (identical(other.selectedCategory, selectedCategory) ||
-                other.selectedCategory == selectedCategory));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, selectedCategory);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ErrorCopyWith<_$_Error> get copyWith =>
-      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int selectedCategory) initial,
-    required TResult Function(int selectedCategory) loading,
-    required TResult Function(int selectedCategory) error,
-    required TResult Function(
-            List<Product> products, int selectedCategory, int viewMode)
-        loaded,
-  }) {
-    return error(selectedCategory);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int selectedCategory)? initial,
-    TResult? Function(int selectedCategory)? loading,
-    TResult? Function(int selectedCategory)? error,
-    TResult? Function(
-            List<Product> products, int selectedCategory, int viewMode)?
-        loaded,
-  }) {
-    return error?.call(selectedCategory);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int selectedCategory)? initial,
-    TResult Function(int selectedCategory)? loading,
-    TResult Function(int selectedCategory)? error,
-    TResult Function(
-            List<Product> products, int selectedCategory, int viewMode)?
-        loaded,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(selectedCategory);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
-    required TResult Function(_Loaded value) loaded,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_Loaded value)? loaded,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
-    TResult Function(_Loaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Error implements ProductsScreenState {
-  const factory _Error(final int selectedCategory) = _$_Error;
-
-  @override
-  int get selectedCategory;
-  @override
-  @JsonKey(ignore: true)
-  _$$_ErrorCopyWith<_$_Error> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -670,9 +614,12 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int selectedCategory) initial,
-    required TResult Function(int selectedCategory) loading,
-    required TResult Function(int selectedCategory) error,
+    required TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)
+        initial,
+    required TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)
+        loading,
     required TResult Function(
             List<Product> products, int selectedCategory, int viewMode)
         loaded,
@@ -683,9 +630,12 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int selectedCategory)? initial,
-    TResult? Function(int selectedCategory)? loading,
-    TResult? Function(int selectedCategory)? error,
+    TResult? Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        initial,
+    TResult? Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        loading,
     TResult? Function(
             List<Product> products, int selectedCategory, int viewMode)?
         loaded,
@@ -696,9 +646,12 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int selectedCategory)? initial,
-    TResult Function(int selectedCategory)? loading,
-    TResult Function(int selectedCategory)? error,
+    TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        initial,
+    TResult Function(
+            List<Product> products, int selectedCategory, int viewMode)?
+        loading,
     TResult Function(
             List<Product> products, int selectedCategory, int viewMode)?
         loaded,
@@ -715,7 +668,6 @@ class _$_Loaded implements _Loaded {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) error,
     required TResult Function(_Loaded value) loaded,
   }) {
     return loaded(this);
@@ -726,7 +678,6 @@ class _$_Loaded implements _Loaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? error,
     TResult? Function(_Loaded value)? loaded,
   }) {
     return loaded?.call(this);
@@ -737,7 +688,6 @@ class _$_Loaded implements _Loaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? error,
     TResult Function(_Loaded value)? loaded,
     required TResult orElse(),
   }) {
@@ -752,9 +702,11 @@ abstract class _Loaded implements ProductsScreenState {
   const factory _Loaded(final List<Product> products,
       final int selectedCategory, final int viewMode) = _$_Loaded;
 
+  @override
   List<Product> get products;
   @override
   int get selectedCategory;
+  @override
   int get viewMode;
   @override
   @JsonKey(ignore: true)

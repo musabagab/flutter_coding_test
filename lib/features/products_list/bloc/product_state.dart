@@ -5,9 +5,10 @@ part 'product_state.freezed.dart';
 
 @freezed
 class ProductsScreenState with _$ProductsScreenState {
-  const factory ProductsScreenState.initial(int selectedCategory) = _Initial;
-  const factory ProductsScreenState.loading(int selectedCategory) = _Loading;
-  const factory ProductsScreenState.error(int selectedCategory) = _Error;
+  const factory ProductsScreenState.initial(
+      List<Product> products, int selectedCategory, int viewMode) = _Initial;
+  const factory ProductsScreenState.loading(
+      List<Product> products, int selectedCategory, int viewMode) = _Loading;
   const factory ProductsScreenState.loaded(
       List<Product> products, int selectedCategory, int viewMode) = _Loaded;
 }

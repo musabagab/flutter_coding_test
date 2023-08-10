@@ -4,10 +4,7 @@ import 'package:flutter_coding_test/features/products_list/bloc/product_bloc.dar
 import 'package:flutter_coding_test/features/products_list/products.dart';
 
 void main() {
-  runApp(BlocProvider<ProductBloc>(
-    create: (context) => ProductBloc(),
-    child: const MyApp(),
-  ));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

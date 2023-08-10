@@ -18,18 +18,18 @@ class CategoriesList extends StatefulWidget {
 class _CategoriesListState extends State<CategoriesList> {
   final List<Category> categories = [
     Category(
-      id: 1,
+      id: 0,
       imageUrl: 'assets/category_all.png',
       name: "عرض الكل",
     ),
-    Category(id: 2, imageUrl: 'assets/category_1.png', name: 'تصنيف 1'),
+    Category(id: 1, imageUrl: 'assets/category_1.png', name: 'تصنيف 1'),
     Category(
-      id: 3,
+      id: 2,
       imageUrl: 'assets/category_2.png',
       name: 'تصنيف 2',
     ),
     Category(
-      id: 4,
+      id: 3,
       imageUrl: 'assets/category_3.png',
       name: 'تصنيف 3',
     ),
