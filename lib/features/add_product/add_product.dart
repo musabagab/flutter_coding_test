@@ -57,7 +57,11 @@ class _AddProductState extends State<AddProduct> {
                   const SizedBox(
                     height: 10,
                   ),
-                  ProductImages(imagesList),
+                  ProductImages(imagesList, (index) {
+                    setState(() {
+                      imagesList.removeAt(index);
+                    });
+                  }),
                   const SizedBox(
                     height: 10,
                   ),
