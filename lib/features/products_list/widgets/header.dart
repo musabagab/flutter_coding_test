@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_coding_test/features/add_product/add_product.dart';
-import 'package:realm/realm.dart';
-
-import '../../../models/product.dart';
 import '../../../ui/app_colors.dart';
 import '../../../ui/custom_text.dart';
 

@@ -3,11 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_coding_test/features/products_list/bloc/product_event.dart';
 import 'package:flutter_coding_test/features/products_list/widgets/products_list.dart';
 import 'package:flutter_coding_test/features/products_list/widgets/toggle_list_view.dart';
-import 'package:flutter_coding_test/models/product.dart';
 import 'package:flutter_coding_test/repository/products_repository.dart';
 import 'package:flutter_coding_test/ui/app_colors.dart';
 import 'package:get_it/get_it.dart';
-import 'package:realm/realm.dart';
 
 import '../../ui/custom_text.dart';
 import 'bloc/product_bloc.dart';
