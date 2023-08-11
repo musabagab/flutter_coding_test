@@ -14,7 +14,8 @@ import '../../products_list/bloc/product_event.dart';
 import '../../products_list/bloc/product_state.dart';
 
 class AddProductForm extends StatefulWidget {
-  const AddProductForm({super.key});
+  final String? productImage;
+  const AddProductForm(this.productImage, {super.key});
 
   @override
   State<AddProductForm> createState() => _AddProductFormState();
@@ -73,9 +74,14 @@ class _AddProductFormState extends State<AddProductForm> {
                 builder: (context, state) {
               return SubmitProductButton(
                 onSubmitClick: () async {
+                  final product = Product(
+                      imageUrl: widget.productImage!,
+                      name: _productNameController.text,
+                      storeName: _productStoreNameController.text,
+                      price: double.parse(_producPriceController.text));
                   context
                       .read<ProductBloc>()
-                      .add(ProductEvent.submitProduct(Product(name: "hello")));
+                      .add(ProductEvent.submitProduct(product));
                 },
               );
             }),

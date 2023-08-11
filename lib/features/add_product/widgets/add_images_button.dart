@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
 import '../../../ui/app_colors.dart';
 import '../../../ui/custom_text.dart';
 
 class AddImagesButton extends StatelessWidget {
-  const AddImagesButton({super.key});
+  void Function()? onUploadClick;
+
+  AddImagesButton({super.key, this.onUploadClick});
 
   @override
   Widget build(BuildContext context) {
-    final ImagePicker picker = ImagePicker();
-
     return GestureDetector(
       onTap: () async {
-        final XFile? image =
-            await picker.pickImage(source: ImageSource.gallery);
+        onUploadClick!();
       },
       child: Container(
         height: 55,

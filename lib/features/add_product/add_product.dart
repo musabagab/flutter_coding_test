@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_coding_test/features/add_product/widgets/add_images_button.dart';
@@ -6,6 +9,7 @@ import 'package:flutter_coding_test/features/add_product/widgets/header.dart';
 import 'package:flutter_coding_test/features/add_product/widgets/product_images.dart';
 import 'package:flutter_coding_test/features/add_product/widgets/submit_product_button.dart';
 import 'package:get_it/get_it.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../repository/products_repository.dart';
 import '../../ui/app_colors.dart';
@@ -20,27 +24,29 @@ class AddProduct extends StatefulWidget {
 }
 
 class _AddProductState extends State<AddProduct> {
+  final ImagePicker picker = ImagePicker();
+  List<String> imagesList = [];
   @override
   Widget build(BuildContext context) {
     final ProductsRepository productsRepository = GetIt.I<ProductsRepository>();
 
     return BlocProvider<ProductBloc>(
       create: (context) => ProductBloc(productsRepository),
-      child: const SafeArea(
+      child: SafeArea(
         child: Scaffold(
             backgroundColor: AppColors.primaryBackground,
             body: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Header(),
-                  SizedBox(
+                  const Header(),
+                  const SizedBox(
                     height: 16,
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(right: 16),
                     child: MediumText(
                       text: "صور المنتج",
@@ -48,18 +54,33 @@ class _AddProductState extends State<AddProduct> {
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  ProductImages(),
-                  SizedBox(
+                  ProductImages(imagesList),
+                  const SizedBox(
                     height: 10,
                   ),
-                  AddImagesButton(),
-                  SizedBox(
+                  AddImagesButton(
+                    onUploadClick: () async {
+                      final XFile? image =
+                          await picker.pickImage(source: ImageSource.gallery);
+                      // Read the image file as bytes
+                      List<int> imageBytes =
+                          await File(image!.path).readAsBytes();
+
+                      // Encode the image bytes to base64
+                      String base64Image = base64Encode(imageBytes);
+
+                      setState(() {
+                        imagesList.add(base64Image);
+                      });
+                    },
+                  ),
+                  const SizedBox(
                     height: 15,
                   ),
-                  AddProductForm(),
+                  AddProductForm(imagesList.firstOrNull),
                 ],
               ),
             )),

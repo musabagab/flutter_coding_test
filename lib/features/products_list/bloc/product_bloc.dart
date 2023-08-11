@@ -25,9 +25,6 @@ class ProductBloc extends Bloc<ProductEvent, ProductsScreenState> {
     on<SubmitProductEvent>((event, emit) async {
       Product product = event.product;
       await productsRepository.addProduct(product);
-      var products = state.products;
-      products.add(product);
-      emit(ProductsScreenState.loaded(products, 0, state.viewMode));
     });
   }
 }
