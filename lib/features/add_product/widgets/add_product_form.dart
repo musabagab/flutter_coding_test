@@ -4,10 +4,7 @@ import 'package:flutter_coding_test/features/add_product/widgets/category_dropdo
 import 'package:flutter_coding_test/features/add_product/widgets/custom_text_field.dart';
 import 'package:flutter_coding_test/features/add_product/widgets/submit_product_button.dart';
 import 'package:flutter_coding_test/models/product.dart';
-import 'package:flutter_coding_test/repository/products_repository.dart';
 import 'package:flutter_coding_test/ui/app_colors.dart';
-import 'package:get_it/get_it.dart';
-
 import '../../../ui/custom_text.dart';
 import '../../products_list/bloc/product_bloc.dart';
 import '../../products_list/bloc/product_event.dart';
@@ -79,7 +76,12 @@ class _AddProductFormState extends State<AddProductForm> {
                 builder: (context, state) {
               return SubmitProductButton(
                 onSubmitClick: () async {
-                  if (_formKey.currentState!.validate()) {}
+                  // validate input
+                  if (widget.productImage == null) return;
+                  if (_productNameController.text.isEmpty) return;
+                  if (_productStoreNameController.text.isEmpty) return;
+                  if (_producPriceController.text.isEmpty) return;
+
                   final product = Product(
                       categoryId: selectedCategoryIndex + 1,
                       imageUrl: widget.productImage!,
@@ -89,6 +91,7 @@ class _AddProductFormState extends State<AddProductForm> {
                   context
                       .read<ProductBloc>()
                       .add(ProductEvent.submitProduct(product));
+                  Navigator.pop(context, true);
                 },
               );
             }),
