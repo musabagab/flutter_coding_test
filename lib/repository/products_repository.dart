@@ -1,41 +1,26 @@
 import 'package:flutter_coding_test/models/product.dart';
+import 'package:realm/realm.dart';
 
 class ProductsRepository {
-  final List<Product> products = [
-    Product(
-      id: 1,
-      imageUrl: 'assets/product1.png',
-      name: 'هذا النص هو مثال لنص',
-      storeName: 'اسم المتجر',
-      categoryId: 1,
-      price: 25.0,
-    ),
-    Product(
-      id: 2,
-      imageUrl: 'assets/product2.png',
-      name: 'هذا النص هو مثال لنص',
-      storeName: 'اسم المتجر',
-      categoryId: 2,
-      price: 30.0,
-    ),
-    Product(
-      id: 3,
-      imageUrl: 'assets/product3.png',
-      name: 'هذا النص هو مثال لنص',
-      storeName: 'اسم المتجر',
-      categoryId: 3,
-      price: 35.0,
-    ),
-  ];
+  final Realm _realm;
+
+  ProductsRepository(this._realm);
 
   Future<List<Product>> getProductsByCategoryId(int categoryId) async {
+    final results = _realm.all<Product>().toList();
+
     if (categoryId == 0) {
-      // all category is selected
-      return products;
+      return results;
     } else {
-      return products
+      return results
           .where((product) => product.categoryId == categoryId)
           .toList();
     }
+  }
+
+  Future<void> addProduct(Product product) async {
+    _realm.write(() {
+      _realm.add(product);
+    });
   }
 }

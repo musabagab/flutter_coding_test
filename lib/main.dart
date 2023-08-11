@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_coding_test/features/products_list/bloc/product_bloc.dart';
 import 'package:flutter_coding_test/features/products_list/products.dart';
+import 'package:flutter_coding_test/repository/products_repository.dart';
+import 'package:get_it/get_it.dart';
+import 'package:realm/realm.dart';
+
+import 'models/product.dart';
 
 void main() {
   runApp(const MyApp());
+  registerDependencies();
+}
+
+void registerDependencies() {
+  GetIt.I
+      .registerSingleton<Realm>(Realm(Configuration.local([Product.schema])));
+
+  GetIt.I.registerLazySingleton(() => ProductsRepository(GetIt.I<Realm>()));
 }
 
 class MyApp extends StatelessWidget {

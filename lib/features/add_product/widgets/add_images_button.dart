@@ -25,7 +25,7 @@ class AddImagesButton extends StatelessWidget {
             const LightText(
               text: "اضغط لاضافة الصور",
               fontColor: Colors.white,
-              fontSize: 12,
+              fontSize: 14,
             ),
             const SizedBox(
               width: 10,
