@@ -33,11 +33,9 @@ To get started with the project, follow these steps:
 Here are some screenshots from the application:
 
 ![Screenshot 1](screenshots/screenshot1.png)
-_Description of screenshot 1._
-
 ![Screenshot 2](screenshots/screenshot2.png)
-_Description of screenshot 2._
-
-<!-- Add more screenshots and descriptions as needed. -->
-
-Feel free to customize and expand the template according to your project's specific details and requirements. Good luck with your coding test for Jacksi LTD company!
+![Screenshot 3](screenshots/screenshot3.png)
+![Screenshot 4](screenshots/screenshot4.png)
+![Screenshot 5](screenshots/screenshot5.png)
+![Screenshot 6](screenshots/screenshot6.png)
+![Screenshot 7](screenshots/screenshot7.png)
