@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_coding_test/features/add_product/add_product.dart';
 
 import '../../../ui/app_colors.dart';
 import '../../../ui/custom_text.dart';
@@ -16,7 +17,10 @@ class Header extends StatelessWidget {
         children: [
           GestureDetector(
             child: Image.asset('assets/icon_add_product.png'),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext contex) => const AddProduct()));
+            },
           ),
           const Expanded(
             child: Align(

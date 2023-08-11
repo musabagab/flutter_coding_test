@@ -83,7 +83,7 @@ class _ProductsListState extends State<ProductsList> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10), // Add spacing here
+                    const SizedBox(height: 10),
                   ],
                 ),
               ),
