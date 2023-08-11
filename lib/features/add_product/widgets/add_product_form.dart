@@ -27,6 +27,7 @@ class _AddProductFormState extends State<AddProductForm> {
   final _productNameController = TextEditingController();
   final _productStoreNameController = TextEditingController();
   final _producPriceController = TextEditingController();
+  int selectedCategoryIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +67,11 @@ class _AddProductFormState extends State<AddProductForm> {
               ),
             ),
             const SizedBox(height: 10),
-            const CategoryDropdown(),
+            CategoryDropdown(
+              onCategorySelected: (index) {
+                selectedCategoryIndex = index;
+              },
+            ),
             const SizedBox(
               height: 15,
             ),
@@ -74,7 +79,9 @@ class _AddProductFormState extends State<AddProductForm> {
                 builder: (context, state) {
               return SubmitProductButton(
                 onSubmitClick: () async {
+                  if (_formKey.currentState!.validate()) {}
                   final product = Product(
+                      categoryId: selectedCategoryIndex + 1,
                       imageUrl: widget.productImage!,
                       name: _productNameController.text,
                       storeName: _productStoreNameController.text,

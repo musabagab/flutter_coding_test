@@ -120,6 +120,8 @@ class _ProductsListState extends State<ProductsList> {
       scrollDirection: Axis.vertical,
       itemBuilder: (context, index) {
         final product = state.products[index];
+        Uint8List imageBytes = base64Decode(product.imageUrl);
+        MemoryImage memoryImage = MemoryImage(imageBytes);
         return Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -131,7 +133,7 @@ class _ProductsListState extends State<ProductsList> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   image: DecorationImage(
-                    image: AssetImage(product.imageUrl),
+                    image: memoryImage,
                     fit: BoxFit.cover,
                   ),
                 ),
