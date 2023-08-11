@@ -20,18 +20,21 @@ mixin _$ProductEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(int categoryId) categorySelected,
     required TResult Function(int viewMode) viewModeChanged,
+    required TResult Function(Product product) submitProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int categoryId)? categorySelected,
     TResult? Function(int viewMode)? viewModeChanged,
+    TResult? Function(Product product)? submitProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int categoryId)? categorySelected,
     TResult Function(int viewMode)? viewModeChanged,
+    TResult Function(Product product)? submitProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$ProductEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(CategorySelectedEvent value) categorySelected,
     required TResult Function(ViewModeChangedEvent value) viewModeChanged,
+    required TResult Function(SubmitProductEvent value) submitProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CategorySelectedEvent value)? categorySelected,
     TResult? Function(ViewModeChangedEvent value)? viewModeChanged,
+    TResult? Function(SubmitProductEvent value)? submitProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CategorySelectedEvent value)? categorySelected,
     TResult Function(ViewModeChangedEvent value)? viewModeChanged,
+    TResult Function(SubmitProductEvent value)? submitProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,6 +148,7 @@ class _$CategorySelectedEvent implements CategorySelectedEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(int categoryId) categorySelected,
     required TResult Function(int viewMode) viewModeChanged,
+    required TResult Function(Product product) submitProduct,
   }) {
     return categorySelected(categoryId);
   }
@@ -151,6 +158,7 @@ class _$CategorySelectedEvent implements CategorySelectedEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int categoryId)? categorySelected,
     TResult? Function(int viewMode)? viewModeChanged,
+    TResult? Function(Product product)? submitProduct,
   }) {
     return categorySelected?.call(categoryId);
   }
@@ -160,6 +168,7 @@ class _$CategorySelectedEvent implements CategorySelectedEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int categoryId)? categorySelected,
     TResult Function(int viewMode)? viewModeChanged,
+    TResult Function(Product product)? submitProduct,
     required TResult orElse(),
   }) {
     if (categorySelected != null) {
@@ -173,6 +182,7 @@ class _$CategorySelectedEvent implements CategorySelectedEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(CategorySelectedEvent value) categorySelected,
     required TResult Function(ViewModeChangedEvent value) viewModeChanged,
+    required TResult Function(SubmitProductEvent value) submitProduct,
   }) {
     return categorySelected(this);
   }
@@ -182,6 +192,7 @@ class _$CategorySelectedEvent implements CategorySelectedEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CategorySelectedEvent value)? categorySelected,
     TResult? Function(ViewModeChangedEvent value)? viewModeChanged,
+    TResult? Function(SubmitProductEvent value)? submitProduct,
   }) {
     return categorySelected?.call(this);
   }
@@ -191,6 +202,7 @@ class _$CategorySelectedEvent implements CategorySelectedEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CategorySelectedEvent value)? categorySelected,
     TResult Function(ViewModeChangedEvent value)? viewModeChanged,
+    TResult Function(SubmitProductEvent value)? submitProduct,
     required TResult orElse(),
   }) {
     if (categorySelected != null) {
@@ -278,6 +290,7 @@ class _$ViewModeChangedEvent implements ViewModeChangedEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(int categoryId) categorySelected,
     required TResult Function(int viewMode) viewModeChanged,
+    required TResult Function(Product product) submitProduct,
   }) {
     return viewModeChanged(viewMode);
   }
@@ -287,6 +300,7 @@ class _$ViewModeChangedEvent implements ViewModeChangedEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int categoryId)? categorySelected,
     TResult? Function(int viewMode)? viewModeChanged,
+    TResult? Function(Product product)? submitProduct,
   }) {
     return viewModeChanged?.call(viewMode);
   }
@@ -296,6 +310,7 @@ class _$ViewModeChangedEvent implements ViewModeChangedEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int categoryId)? categorySelected,
     TResult Function(int viewMode)? viewModeChanged,
+    TResult Function(Product product)? submitProduct,
     required TResult orElse(),
   }) {
     if (viewModeChanged != null) {
@@ -309,6 +324,7 @@ class _$ViewModeChangedEvent implements ViewModeChangedEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(CategorySelectedEvent value) categorySelected,
     required TResult Function(ViewModeChangedEvent value) viewModeChanged,
+    required TResult Function(SubmitProductEvent value) submitProduct,
   }) {
     return viewModeChanged(this);
   }
@@ -318,6 +334,7 @@ class _$ViewModeChangedEvent implements ViewModeChangedEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CategorySelectedEvent value)? categorySelected,
     TResult? Function(ViewModeChangedEvent value)? viewModeChanged,
+    TResult? Function(SubmitProductEvent value)? submitProduct,
   }) {
     return viewModeChanged?.call(this);
   }
@@ -327,6 +344,7 @@ class _$ViewModeChangedEvent implements ViewModeChangedEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CategorySelectedEvent value)? categorySelected,
     TResult Function(ViewModeChangedEvent value)? viewModeChanged,
+    TResult Function(SubmitProductEvent value)? submitProduct,
     required TResult orElse(),
   }) {
     if (viewModeChanged != null) {
@@ -343,5 +361,146 @@ abstract class ViewModeChangedEvent implements ProductEvent {
   int get viewMode;
   @JsonKey(ignore: true)
   _$$ViewModeChangedEventCopyWith<_$ViewModeChangedEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SubmitProductEventCopyWith<$Res> {
+  factory _$$SubmitProductEventCopyWith(_$SubmitProductEvent value,
+          $Res Function(_$SubmitProductEvent) then) =
+      __$$SubmitProductEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Product product});
+}
+
+/// @nodoc
+class __$$SubmitProductEventCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res, _$SubmitProductEvent>
+    implements _$$SubmitProductEventCopyWith<$Res> {
+  __$$SubmitProductEventCopyWithImpl(
+      _$SubmitProductEvent _value, $Res Function(_$SubmitProductEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? product = null,
+  }) {
+    return _then(_$SubmitProductEvent(
+      null == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SubmitProductEvent implements SubmitProductEvent {
+  const _$SubmitProductEvent(this.product);
+
+  @override
+  final Product product;
+
+  @override
+  String toString() {
+    return 'ProductEvent.submitProduct(product: $product)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SubmitProductEvent &&
+            (identical(other.product, product) || other.product == product));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, product);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SubmitProductEventCopyWith<_$SubmitProductEvent> get copyWith =>
+      __$$SubmitProductEventCopyWithImpl<_$SubmitProductEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int categoryId) categorySelected,
+    required TResult Function(int viewMode) viewModeChanged,
+    required TResult Function(Product product) submitProduct,
+  }) {
+    return submitProduct(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int categoryId)? categorySelected,
+    TResult? Function(int viewMode)? viewModeChanged,
+    TResult? Function(Product product)? submitProduct,
+  }) {
+    return submitProduct?.call(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int categoryId)? categorySelected,
+    TResult Function(int viewMode)? viewModeChanged,
+    TResult Function(Product product)? submitProduct,
+    required TResult orElse(),
+  }) {
+    if (submitProduct != null) {
+      return submitProduct(product);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CategorySelectedEvent value) categorySelected,
+    required TResult Function(ViewModeChangedEvent value) viewModeChanged,
+    required TResult Function(SubmitProductEvent value) submitProduct,
+  }) {
+    return submitProduct(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CategorySelectedEvent value)? categorySelected,
+    TResult? Function(ViewModeChangedEvent value)? viewModeChanged,
+    TResult? Function(SubmitProductEvent value)? submitProduct,
+  }) {
+    return submitProduct?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategorySelectedEvent value)? categorySelected,
+    TResult Function(ViewModeChangedEvent value)? viewModeChanged,
+    TResult Function(SubmitProductEvent value)? submitProduct,
+    required TResult orElse(),
+  }) {
+    if (submitProduct != null) {
+      return submitProduct(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SubmitProductEvent implements ProductEvent {
+  const factory SubmitProductEvent(final Product product) =
+      _$SubmitProductEvent;
+
+  Product get product;
+  @JsonKey(ignore: true)
+  _$$SubmitProductEventCopyWith<_$SubmitProductEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }

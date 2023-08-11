@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_coding_test/repository/products_repository.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../../models/product.dart';
 import 'product_event.dart';
 import 'product_state.dart';
 
@@ -20,6 +21,13 @@ class ProductBloc extends Bloc<ProductEvent, ProductsScreenState> {
     on<ViewModeChangedEvent>((event, emit) {
       int viewMode = event.viewMode;
       emit(state.copyWith(viewMode: viewMode));
+    });
+    on<SubmitProductEvent>((event, emit) async {
+      Product product = event.product;
+      await productsRepository.addProduct(product);
+      var products = state.products;
+      products.add(product);
+      emit(ProductsScreenState.loaded(products, 0, state.viewMode));
     });
   }
 }

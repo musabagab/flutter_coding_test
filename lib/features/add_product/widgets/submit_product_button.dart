@@ -4,7 +4,8 @@ import 'package:flutter_coding_test/ui/custom_text.dart';
 import '../../../ui/app_colors.dart';
 
 class SubmitProductButton extends StatefulWidget {
-  const SubmitProductButton({super.key});
+  void Function()? onSubmitClick;
+  SubmitProductButton({super.key, this.onSubmitClick});
 
   @override
   State<SubmitProductButton> createState() => _SubmitProductButtonState();
@@ -14,7 +15,9 @@ class _SubmitProductButtonState extends State<SubmitProductButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        widget.onSubmitClick!();
+      },
       child: Container(
         height: 55,
         margin: const EdgeInsets.symmetric(horizontal: 10),
